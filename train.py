@@ -277,8 +277,8 @@ def main():
     DISPLAY_FREQ = 20
     TRAIN_OR_TEST = 1
     # model_name = 'tmp_20160130.pkl'
-    model_name = 'data_sync/test.pkl'
-    model_name = '../tf_official_docker/tmp.pkl'
+    model_name = 'data_sync/test20170203.pkl'
+    # model_name = '../tf_official_docker/tmp.pkl'
     PREV_MODEL_EXIST = 0
 
 
