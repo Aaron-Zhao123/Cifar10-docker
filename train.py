@@ -4,6 +4,7 @@ import numpy as np
 import sys
 import os
 import pickle
+import time
 
 from cifar10 import img_size, num_channels, num_classes
 def _variable_with_weight_decay(name, shape, stddev, wd):
@@ -342,6 +343,7 @@ def main():
         #     op = tf.train.import_meta_graph("tmp_20160130/model.meta")
         #     op.restore(sess,tf.train.latest_checkpoint('tmp_20160130/'))
         #     print ("model found and restored")
+        start = time.time()
         if TRAIN_OR_TEST == 1:
             for i in range(0,100000):
                 (batch_x, batch_y) = t_data.feed_next_batch(BATCH_SIZE)
@@ -350,11 +352,15 @@ def main():
                                 y: batch_y,
                                 keep_prob: 1.0})
                 if (i % DISPLAY_FREQ == 0):
+                    print('This is the {}th iteration, time is {}'.format(
+                        i,
+                        time.time() - start
+                    ))
                     print("accuracy is {} and cross entropy is {}".format(
                         train_acc,
                         cross_en
                     ))
-                    if (i%(DISPLAY_FREQ*5) == 0 and i != 0 ):
+                    if (i%(DISPLAY_FREQ*50) == 0 and i != 0 ):
                         save_pkl_model(weights, biases, model_name)
                         # saver.save(sess, "tmp_20160130/model")
                         print("saved the network")
