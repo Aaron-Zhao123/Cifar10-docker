@@ -276,11 +276,12 @@ def main():
     NUM_EPOCHS_PER_DECAY = 350.0
     MOVING_AVERAGE_DECAY = 0.9999     # The decay to use for the moving average.
     DISPLAY_FREQ = 20
-    TRAIN_OR_TEST = 0
+    TRAIN_OR_TEST = 1
     # model_name = 'tmp_20160130.pkl'
     # model_name = 'data_sync/test20170203.pkl'
     #model_name = '20170205.pkl'
-    model_name = 'test.pkl'
+    model_name = '20170206.pkl'
+    # model_name = 'test.pkl'
     # model_name = '../tf_official_docker/tmp.pkl'
     PREV_MODEL_EXIST = 1
 
